@@ -17,7 +17,7 @@ function extend(obj, src) {
   return obj;
 }
 
-async function capiGet(start, limit, where, type, capiResponse) {
+async function capiGet(start, limit, where, type) {
   /*
   let start = 0;
   let limit = 1000;
@@ -56,13 +56,13 @@ async function capiGet(start, limit, where, type, capiResponse) {
   capiResponse = extend(await response.data.data, capiResponse);
 }
 
+let capiResponse = {};
+
 async function capiData() {
 
-  let capiResponse = {};
-
-  await capiGet(0, 5, {}, 'ap', capiResponse);
-  await capiGet(0, 5, {}, 'bm', capiResponse);
-  await capiGet(5, 5, {}, 'bm', capiResponse);
+  await capiGet(0, 5, {}, 'ap');
+  await capiGet(0, 5, {}, 'bm');
+  await capiGet(5, 5, {}, 'bm');
   prettyJSON(capiResponse);
 };
 
