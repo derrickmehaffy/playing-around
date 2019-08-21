@@ -1,4 +1,5 @@
 const axios = require('axios');
+// FOR DEBUG ONLY
 const fs = require('fs');
 
 let sites = {
@@ -33,6 +34,7 @@ const go = async types => {
 		console.log('Fetching ' + typeKeys[i]);
 		sites[typeKeys[i]] = await getSites(typeKeys[i]);
 	}
+	// FOR DEBUG ONLY
 	fs.writeFile('data/data.json', JSON.stringify(sites, null, 2), err => {
 		if (err) throw err;
 		console.log('Saved to data/data.json');
